@@ -21,9 +21,18 @@ export default function Page() {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Canvas camera={{ position: [0, 1.2, 3], fov: 90 }}>
-        <ambientLight intensity={0.6} />
+        <color attach="background" args={["#333333"]} />
+        <ambientLight intensity={0.7} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} />
         <directionalLight position={[-5, 3, -5]} intensity={0.4} />
+        <directionalLight position={[0, 2, -3]} intensity={0.3} />{" "}
+        {/* back light */}
+        <spotLight
+          position={[0.5, 3, 2.5]}
+          intensity={1.2}
+          angle={0.3}
+          penumbra={0.5}
+        />
         <Suspense fallback={null}>
           <Model />
         </Suspense>
